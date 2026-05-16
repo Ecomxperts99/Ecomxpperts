@@ -60,8 +60,7 @@ h1 .white{color:var(--white)}
 .btn svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
 
 /* Pulse on WhatsApp */
-@keyframes pulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,0.3),0 0 0 0 rgba(37,211,102,0.5)}70%{box-shadow:0 6px 25px rgba(37,211,102,0.3),0 0 0 14px rgba(37,211,102,0)}}
-.btn-wa{animation:pulse 2s infinite}
+.btn-wa{animation:shaker 2.5s ease-in-out infinite}
 
 /* hero image side */
 .hero-img-side{position:relative;animation:floatUp 1s .6s ease both}
@@ -160,6 +159,108 @@ footer strong{color:var(--gold)}
   .btn-row{flex-direction:column;align-items:flex-start}
   .cta-btn-row{flex-direction:column;align-items:center}
 }
+
+/* SHAKER ANIMATION */
+@keyframes shaker{
+  0%,100%{transform:rotate(0deg) scale(1)}
+  10%{transform:rotate(-12deg) scale(1.05)}
+  20%{transform:rotate(12deg) scale(1.05)}
+  30%{transform:rotate(-10deg) scale(1.08)}
+  40%{transform:rotate(10deg) scale(1.08)}
+  50%{transform:rotate(-8deg) scale(1.05)}
+  60%{transform:rotate(8deg) scale(1.05)}
+  70%{transform:rotate(-5deg) scale(1.02)}
+  80%{transform:rotate(5deg) scale(1.02)}
+  90%{transform:rotate(-2deg)}
+}
+
+/* FLOATING STICKY WA BUTTON */
+.wa-float{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  z-index:9999;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  color:#fff;
+  border-radius:50px;
+  padding:14px 22px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  font-family:'Poppins',sans-serif;
+  font-weight:700;
+  font-size:.9rem;
+  box-shadow:0 6px 30px rgba(37,211,102,0.5);
+  animation:shaker 2.5s ease-in-out infinite;
+  border:2px solid rgba(255,255,255,0.25);
+  transition:transform .2s,box-shadow .2s;
+}
+.wa-float:hover{
+  transform:scale(1.08) !important;
+  box-shadow:0 10px 40px rgba(37,211,102,0.7);
+  animation:none;
+}
+.wa-float svg{width:22px;height:22px;fill:#fff;flex-shrink:0}
+
+/* INLINE WA STRIP BUTTON */
+.wa-strip{
+  display:flex;
+  justify-content:center;
+  margin:36px auto 0;
+}
+.wa-strip a{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  color:#fff;
+  text-decoration:none;
+  font-family:'Poppins',sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  padding:16px 36px;
+  border-radius:50px;
+  box-shadow:0 8px 30px rgba(37,211,102,0.4);
+  border:2px solid rgba(255,255,255,0.2);
+  animation:shaker 2.8s ease-in-out infinite;
+  transition:box-shadow .3s;
+}
+.wa-strip a:hover{
+  box-shadow:0 14px 45px rgba(37,211,102,0.65);
+  animation:none;
+  transform:scale(1.05);
+}
+.wa-strip a svg{width:22px;height:22px;fill:#fff}
+
+/* BANNER WA BUTTON (full width strip) */
+.wa-banner{
+  background:linear-gradient(90deg,#1a3a2a,#1e4d35,#1a3a2a);
+  border-top:2px solid rgba(37,211,102,0.3);
+  border-bottom:2px solid rgba(37,211,102,0.3);
+  padding:28px 5%;
+  text-align:center;
+}
+.wa-banner p{color:rgba(255,255,255,0.7);font-size:.9rem;margin-bottom:14px}
+.wa-banner a{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  color:#fff;
+  text-decoration:none;
+  font-family:'Poppins',sans-serif;
+  font-weight:800;
+  font-size:1.05rem;
+  padding:16px 40px;
+  border-radius:50px;
+  box-shadow:0 8px 30px rgba(37,211,102,0.45);
+  letter-spacing:.5px;
+  animation:shaker 3s ease-in-out infinite;
+  border:2px solid rgba(255,255,255,0.2);
+}
+.wa-banner a:hover{animation:none;transform:scale(1.06);box-shadow:0 14px 45px rgba(37,211,102,0.7)}
+.wa-banner a svg{width:22px;height:22px;fill:#fff}
 </style>
 </head>
 <body>
@@ -223,6 +324,15 @@ footer strong{color:var(--gold)}
 </div>
 
 <!-- EARNINGS PROOF -->
+
+<!-- WA BUTTON 2: After Stats -->
+<div class="wa-strip">
+  <a href="https://wa.me/918840837128?text=Hi%20EcomXperts!%20I%20want%20to%20start%20my%20digital%20product%20business%20for%20%E2%82%B92499" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.864L.057 23.929l6.244-1.638A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.502-5.2-1.38l-.373-.222-3.854 1.012 1.03-3.759-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    💬 Chat on WhatsApp — Start Today for ₹2,499
+  </a>
+</div>
+
 <section class="section" id="proof">
   <div class="section-header">
     <div class="section-tag">💰 Real Proof</div>
@@ -289,6 +399,15 @@ footer strong{color:var(--gold)}
     </div>
   </div>
 </section>
+
+<!-- WA BUTTON 3: Banner after Features -->
+<div class="wa-banner">
+  <p>🔥 Ready to launch your digital product business? Talk to us right now!</p>
+  <a href="https://wa.me/918840837128?text=Hi%20EcomXperts!%20I%20want%20to%20start%20my%20digital%20product%20business%20for%20%E2%82%B92499" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.864L.057 23.929l6.244-1.638A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.502-5.2-1.38l-.373-.222-3.854 1.012 1.03-3.759-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    💬 WhatsApp Now — Get Your Store in 2 Hours
+  </a>
+</div>
 
 <!-- WHAT'S INCLUDED -->
 <section class="section">
@@ -367,6 +486,15 @@ footer strong{color:var(--gold)}
     </div>
   </div>
 </section>
+
+<!-- WA BUTTON 4: Banner after Testimonials -->
+<div class="wa-banner">
+  <p>✅ Join 500+ happy clients who already started earning. Don't wait!</p>
+  <a href="https://wa.me/918840837128?text=Hi%20EcomXperts!%20I%20want%20to%20start%20my%20digital%20product%20business%20for%20%E2%82%B92499" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.864L.057 23.929l6.244-1.638A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.502-5.2-1.38l-.373-.222-3.854 1.012 1.03-3.759-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    💬 WhatsApp & Get Started Now — ₹2,499 Only
+  </a>
+</div>
 
 <!-- PAYMENT GATEWAYS -->
 <section class="section" style="padding-top:40px;padding-bottom:60px;text-align:center">
@@ -448,5 +576,12 @@ const statsIO = new IntersectionObserver((entries)=>{
 },{threshold:0.3});
 document.querySelector('.stats-inner') && statsIO.observe(document.querySelector('.stats-inner'));
 </script>
+
+<!-- WA BUTTON 1: Floating Sticky -->
+<a href="https://wa.me/918840837128?text=Hi%20EcomXperts!%20I%20want%20to%20start%20my%20digital%20product%20business%20for%20%E2%82%B92499" target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.864L.057 23.929l6.244-1.638A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.502-5.2-1.38l-.373-.222-3.854 1.012 1.03-3.759-.242-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  <span>WhatsApp Us</span>
+</a>
+
 </body>
 </html>
