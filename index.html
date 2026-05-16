@@ -215,7 +215,7 @@ footer strong{color:var(--gold)}
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="reveal"><div class="stat-num">₹10 Lakhs+</div><div class="stat-label">Total Earnings by Clients</div></div>
+    <div class="reveal"><div class="stat-num">₹10,00,000+</div><div class="stat-label">Total Earnings by Clients</div></div>
     <div class="reveal"><div class="stat-num">500+</div><div class="stat-label">Happy Clients</div></div>
     <div class="reveal"><div class="stat-num">2 HRS</div><div class="stat-label">Setup Time</div></div>
     <div class="reveal"><div class="stat-num">5★</div><div class="stat-label">Average Rating</div></div>
@@ -440,7 +440,7 @@ const statsIO = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       const nums = e.target.querySelectorAll('.stat-num');
-      nums[0] && animateCount(nums[0], 64268, '₹', '+');
+      nums[0] && animateCount(nums[0], 1000000, '₹', '+');
       nums[1] && animateCount(nums[1], 500, '', '+');
       statsIO.unobserve(e.target);
     }
